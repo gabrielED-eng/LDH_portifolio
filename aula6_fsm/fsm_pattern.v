@@ -63,6 +63,6 @@ module fsm_pattern(
 	end
 	
 	//logíca de saída
-	assign out = state[2];
+	assign out = (state == `S4);
 	
 endmodule 

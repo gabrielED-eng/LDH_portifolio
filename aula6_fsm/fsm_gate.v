@@ -6,7 +6,7 @@
 `define DIR_OPEN			1'b1
 `define DIR_CLOSE			1'b0
 
-module fsm_gate_ctrl(
+module fsm_gate(
 	input rst,
 	input clk,
 	// sinais de controle

@@ -127,13 +127,40 @@ module DE10_LITE_Golden_Top(
 //  REG/WIRE declarations
 //=======================================================
 
-
-
+	wire clk_1s;
+	wire start_s;
+	wire end_s;
+	wire dir;
 
 //=======================================================
 //  Structural coding
 //=======================================================
+	clk_1s c1(
+		.clk_50M(MAX10_CLK1_50),
+		.reset(~KEY[0]),
+		.clk_out(clk_1s)
+	);
 
-
-
+	fsm_gate(
+		.rst(~KEY[0]),
+		.clk(clk_1s),
+		.user_button(~KEY[1]),
+		.start_stop(start_s),
+		.end_stop(end_S),
+		.motor_power(HEX0[0]),
+		.motor_direction(dir)
+	);
+	
+	gate_counter(
+		.rst(~KEY[0]),
+		.clk(clk_1s),
+		.enable(SW[0]),
+		.dir(dir),
+		.start_stop(start_s),
+		.end_stop(stop_s),
+		.led_bar(LEDR)
+	);
+	
+	assign HEX0[1] = dir; 
+	
 endmodule

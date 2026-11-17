@@ -254,11 +254,10 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT BSDL -section_id eda_board_de
 set_global_assignment -name VERILOG_FILE movavg_filter.v
 set_global_assignment -name VERILOG_FILE filter_tb.v
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH filter_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH transfer_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME filter_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id filter_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME filter_tb -section_id filter_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE filter_tb.v -section_id filter_tb
 set_global_assignment -name VERILOG_FILE bw2.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
@@ -449,3 +448,9 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[33]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[34]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[35]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE transfer_tb.v
+set_global_assignment -name EDA_TEST_BENCH_FILE filter_tb.v -section_id filter_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME transfer_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id transfer_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME transfer_tb -section_id transfer_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE transfer_tb.v -section_id transfer_tb
